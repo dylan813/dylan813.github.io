@@ -112,10 +112,15 @@ function typeWriter(element, text, speed = 100) {
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const parallaxElements = document.querySelectorAll('.hero-image');
+    const windowHeight = window.innerHeight;
     
     parallaxElements.forEach(element => {
         const speed = 0.5;
-        element.style.transform = `translateY(${scrolled * speed}px)`;
+        // Calculate max movement as a ratio of window height (e.g., 20% of viewport)
+        const maxMovement = windowHeight * 0.2;
+        // Apply parallax but limit to max movement
+        const movement = Math.min(scrolled * speed, maxMovement);
+        element.style.transform = `translateY(${movement}px)`;
     });
 });
 
