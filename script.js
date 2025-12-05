@@ -184,7 +184,13 @@ function createBackToTopButton() {
     
     // Show/hide button based on scroll position
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
+        const scrollPosition = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const distanceFromBottom = documentHeight - (scrollPosition + windowHeight);
+        
+        // Show button if scrolled more than 300px AND not near the bottom (within 250px of footer)
+        if (scrollPosition > 300 && distanceFromBottom > 100) {
             backToTopButton.style.display = 'block';
         } else {
             backToTopButton.style.display = 'none';
