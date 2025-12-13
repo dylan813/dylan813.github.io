@@ -319,6 +319,18 @@ section {
     color: #1e293b;
 }
 
+.project-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #2563eb;
+}
+
+.project-heading:first-of-type {
+    margin-top: 0.5rem;
+}
+
 .project-description {
     color: #64748b;
     margin-bottom: 1rem;
